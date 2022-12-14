@@ -296,6 +296,13 @@ void Cmd_Give_f (edict_t *ent)
 }
 
 
+//DG Start: Cmd_Special : links special attack functionality
+void Cmd_Special(edict_t* ent) {
+	
+
+}
+
+
 /*
 ==================
 Cmd_God_f

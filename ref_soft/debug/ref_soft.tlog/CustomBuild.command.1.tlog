@@ -1,0 +1,18 @@
+^C:\USERS\JUSTP\ONEDRIVE\DOCUMENTS\IT266-F22\GAME-MOD-Q2\QUAKE2-MOD\REF_SOFT\R_ACLIPA.ASM
+ml /c /Cp /coff /Fo.\..\debug\r_aclipa.obj /Zm /Zi C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_aclipa.asm
+^C:\USERS\JUSTP\ONEDRIVE\DOCUMENTS\IT266-F22\GAME-MOD-Q2\QUAKE2-MOD\REF_SOFT\R_DRAW16.ASM
+ml /c /Cp /coff /Fo.\..\debug\r_draw16.obj /Zm /Zi C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_draw16.asm
+^C:\USERS\JUSTP\ONEDRIVE\DOCUMENTS\IT266-F22\GAME-MOD-Q2\QUAKE2-MOD\REF_SOFT\R_DRAWA.ASM
+ml /c /Cp /coff /Fo.\..\debug\r_drawa.obj /Zm /Zi C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_drawa.asm
+^C:\USERS\JUSTP\ONEDRIVE\DOCUMENTS\IT266-F22\GAME-MOD-Q2\QUAKE2-MOD\REF_SOFT\R_EDGEA.ASM
+ml /c /Cp /coff /Fo.\..\debug\r_edgea.obj /Zm /Zi C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_edgea.asm
+^C:\USERS\JUSTP\ONEDRIVE\DOCUMENTS\IT266-F22\GAME-MOD-Q2\QUAKE2-MOD\REF_SOFT\R_POLYSA.ASM
+ml /c /Cp /coff /Fo.\..\debug\r_polysa.obj /Zm /Zi C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_polysa.asm
+^C:\USERS\JUSTP\ONEDRIVE\DOCUMENTS\IT266-F22\GAME-MOD-Q2\QUAKE2-MOD\REF_SOFT\R_SCANA.ASM
+ml /c /Cp /coff /Fo.\..\debug\r_scana.obj /Zm /Zi C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_scana.asm
+^C:\USERS\JUSTP\ONEDRIVE\DOCUMENTS\IT266-F22\GAME-MOD-Q2\QUAKE2-MOD\REF_SOFT\R_SPR8.ASM
+ml /c /Cp /coff /Fo.\..\debug\r_spr8.obj /Zm /Zi C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_spr8.asm
+^C:\USERS\JUSTP\ONEDRIVE\DOCUMENTS\IT266-F22\GAME-MOD-Q2\QUAKE2-MOD\REF_SOFT\R_SURF8.ASM
+ml /c /Cp /coff /Fo.\..\debug\r_surf8.obj /Zm /Zi C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_surf8.asm
+^C:\USERS\JUSTP\ONEDRIVE\DOCUMENTS\IT266-F22\GAME-MOD-Q2\QUAKE2-MOD\REF_SOFT\R_VARSA.ASM
+ml /c /Cp /coff /Fo.\..\debug\r_varsa.obj /Zm /Zi C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_varsa.asm

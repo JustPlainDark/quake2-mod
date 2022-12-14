@@ -1,0 +1,110 @@
+﻿cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+  q_shared.c
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\q_shared.c(876,3): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\q_shared.c(897,2): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\q_shared.c(923,2): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\q_shared.c(1056,2): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\q_shared.c(1230,8): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\q_shared.c(1234,2): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\q_shared.c(1334,4): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  p_weapon.c
+  p_view.c
+  p_trail.c
+  p_hud.c
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\p_hud.c(234,4): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\p_hud.c(245,3): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  p_client.c
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\p_client.c(1370,3): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\p_client.c(1375,2): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\p_client.c(1415,2): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  m_tank.c
+  m_supertank.c
+  m_soldier.c
+  m_parasite.c
+  m_mutant.c
+  m_move.c
+  m_medic.c
+  m_insane.c
+  m_infantry.c
+  m_hover.c
+  m_gunner.c
+  m_gladiator.c
+  m_flyer.c
+  m_float.c
+  Generating Code...
+  Compiling...
+  m_flipper.c
+  m_flash.c
+  m_chick.c
+  m_brain.c
+  m_boss32.c
+  m_boss31.c
+  m_boss3.c
+  m_boss2.c
+  m_berserk.c
+  m_actor.c
+  g_weapon.c
+  g_utils.c
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_utils.c(396,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  g_turret.c
+  g_trigger.c
+  g_target.c
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_target.c(93,3): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_target.c(121,3): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_target.c(123,3): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  g_svcmds.c
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_svcmds.c(249,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_svcmds.c(251,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_svcmds.c(255,6): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  g_spawn.c
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_spawn.c(380,5): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_spawn.c(433,3): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_spawn.c(543,2): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_spawn.c(544,2): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_spawn.c(812,3): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_spawn.c(819,3): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_spawn.c(822,3): warning C4996: 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  g_save.c
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_save.c(469,6): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_save.c(474,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_save.c(495,6): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_save.c(635,6): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_save.c(690,6): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  g_phys.c
+  g_monster.c
+  Generating Code...
+  Compiling...
+  g_misc.c
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_misc.c(1700,11): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  g_main.c
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_main.c(148,2): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_main.c(160,2): warning C4996: 'vsprintf': This function or variable may be unsafe. Consider using vsprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_main.c(233,7): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _strdup. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_main.c(235,7): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_main.c(239,9): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_main.c(252,8): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  g_items.c
+  g_func.c
+  g_combat.c
+  g_cmds.c
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_cmds.c(34,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_cmds.c(57,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_cmds.c(58,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_cmds.c(722,4): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_cmds.c(725,3): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_cmds.c(808,3): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_cmds.c(809,3): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_cmds.c(810,3): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_cmds.c(821,3): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_cmds.c(828,2): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_cmds.c(885,3): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_cmds.c(893,4): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\g_cmds.c(897,3): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  g_chase.c
+  g_ai.c
+  Generating Code...
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1371,5): warning MSB8012: TargetPath(C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\debug\game.dll) does not match the Linker's OutputFile property value (C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\debug\gamex86.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1373,5): warning MSB8012: TargetName(game) does not match the Linker's OutputFile property value (gamex86). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+g_ai.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+     Creating library .\..\debug\gamex86.lib and object .\..\debug\gamex86.exp
+  game.vcxproj -> C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\debug\game.dll

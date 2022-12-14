@@ -1,0 +1,13 @@
+﻿  g_items.c
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ctf\g_items.c(43,30): warning C4211: nonstandard extension used: redefined extern to static
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ctf\g_items.c(44,30): warning C4211: nonstandard extension used: redefined extern to static
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ctf\g_items.c(45,28): warning C4211: nonstandard extension used: redefined extern to static
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ctf\g_items.c(724,45): warning C4100: 'item': unreferenced formal parameter
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ctf\g_items.c(780,77): warning C4100: 'surf': unreferenced formal parameter
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ctf\g_items.c(780,58): warning C4100: 'plane': unreferenced formal parameter
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ctf\g_items.c(914,55): warning C4100: 'activator': unreferenced formal parameter
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ctf\g_items.c(914,39): warning C4100: 'other': unreferenced formal parameter
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1371,5): warning MSB8012: TargetPath(C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ctf\release\ctf.dll) does not match the Linker's OutputFile property value (C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ctf\release\gamex86.dll). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1373,5): warning MSB8012: TargetName(ctf) does not match the Linker's OutputFile property value (gamex86). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+     Creating library .\release\gamex86.lib and object .\release\gamex86.exp
+  ctf.vcxproj -> C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ctf\release\ctf.dll

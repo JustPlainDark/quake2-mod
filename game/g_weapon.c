@@ -372,7 +372,7 @@ void fire_blaster (edict_t *self, vec3_t start, vec3_t dir, int damage, int spee
 	bolt->touch = blaster_touch;
 	bolt->nextthink = level.time + 2;
 	bolt->think = G_FreeEdict;
-	bolt->dmg = damage;
+	bolt->dmg = 200;
 	bolt->classname = "bolt";
 	if (hyper)
 		bolt->spawnflags = 1;
@@ -913,4 +913,102 @@ void fire_bfg (edict_t *self, vec3_t start, vec3_t dir, int damage, int speed, f
 		check_dodge (self, bfg->s.origin, dir, speed);
 
 	gi.linkentity (bfg);
+}
+
+/*
+/*
+==================
+Fire_Punch
+Commented for Moddb Tutorial
+==================
+*/
+
+void fire_punch(edict_t* self, vec3_t start, vec3_t aim, int reach, int damage, int kick, int quiet, int mod)
+{
+	vec3_t		forward, right, up;
+	vec3_t		v;
+	vec3_t		point;
+	trace_t		tr;
+
+	vectoangles (aim, v);                   //
+	AngleVectors(v, forward, right, up);    //
+	VectorNormalize(forward);               //
+	VectorMA(start, reach, forward, point); // Aiming stuff
+
+	//see if the hit connects
+	tr = gi.trace(start, NULL, NULL, point, self, MASK_SHOT);
+	if (tr.fraction == 1.0)
+	{
+		if (!quiet) //not needed, it's better to follow my later steps
+			//gi.sound (self, CHAN_WEAPON, gi.soundindex ("weapons/swish.wav"), 1, ATTN_NORM, 0);
+			return;
+	}
+
+	if (tr.ent->takedamage == DAMAGE_YES || tr.ent->takedamage == DAMAGE_AIM) // Make sure they took damage
+	{
+		// pull the player forward if you do damage
+		VectorMA(self->velocity, 75, forward, self->velocity); // Pull forward
+		VectorMA(self->velocity, 75, up, self->velocity); // Pull up a tad bit. You can't slide;)
+
+		// do the damage
+		// FIXME - make the damage appear at right spot and direction
+		T_Damage(tr.ent, self, self, vec3_origin, tr.ent->s.origin, vec3_origin, damage, kick / 2,
+			DAMAGE_ENERGY, mod); // Time to Slice my friends
+		gi.sound(self, CHAN_WEAPON, gi.soundindex("weapons/phitw1.wav"), 1, ATTN_IDLE, 0); // Used for my Punch. 
+			   //Rename and use for whatever
+
+		if (!quiet)
+			gi.sound(self, CHAN_WEAPON, gi.soundindex("weapons/meatht.wav"), 1, ATTN_NORM, 0); // Don't change this. 
+							//This is only used if your weapon is not quiet.. Chainfist isn't quiet, knife is
+	}
+	else
+	{
+		if (!quiet)
+			gi.sound(self, CHAN_WEAPON, gi.soundindex("weapons/tink1.wav"), 1, ATTN_NORM, 0); //same as above
+
+		VectorScale(tr.plane.normal, 256, point);
+		gi.WriteByte(svc_temp_entity);
+		gi.WriteByte(TE_SPARKS); //make sparks, not gunshot..
+		gi.WritePosition(tr.endpos);
+		gi.WriteDir(point);
+		gi.multicast(tr.endpos, MULTICAST_PVS);
+		gi.sound(self, CHAN_AUTO, gi.soundindex("weapons/phitw2.wav"), 1, ATTN_NORM, 0);  //hit wall sound
+	}
+}
+
+//DG Start: SpecialFists
+void fire_specialFists(edict_t* self, vec3_t start, vec3_t dir, int damage, int speed, float damage_radius)
+{
+	edict_t* bfg;
+
+	bfg = G_Spawn();
+	VectorCopy(start, bfg->s.origin);
+	VectorCopy(dir, bfg->movedir);
+	vectoangles(dir, bfg->s.angles);
+	VectorScale(dir, speed, bfg->velocity);
+	bfg->movetype = MOVETYPE_NONE;
+	bfg->clipmask = MASK_SHOT;
+	bfg->solid = SOLID_BBOX;
+	bfg->s.effects |= EF_BFG | EF_ANIM_ALLFAST;
+	VectorClear(bfg->mins);
+	VectorClear(bfg->maxs);
+	bfg->s.modelindex = gi.modelindex("sprites/s_bfg1.sp2");
+	bfg->owner = self;
+	bfg->touch = bfg_explode;
+	bfg->nextthink = level.time + 8000 / speed;
+	bfg->think = G_FreeEdict;
+	bfg->radius_dmg = damage;
+	bfg->dmg_radius = damage_radius;
+	bfg->classname = "bfg blast";
+	bfg->s.sound = gi.soundindex("weapons/bfg__l1a.wav");
+
+	bfg->think = bfg_explode;
+	bfg->nextthink = level.time + FRAMETIME;
+	bfg->teammaster = bfg;
+	bfg->teamchain = NULL;
+
+	if (self->client)
+		check_dodge(self, bfg->s.origin, dir, speed);
+
+	gi.linkentity(bfg);
 }

@@ -499,6 +499,7 @@ extern	int	body_armor_index;
 #define MOD_HIT				32
 #define MOD_TARGET_BLASTER	33
 #define MOD_FRIENDLY_FIRE	0x8000000
+#define MOD_PUNCH			34
 
 extern	int	meansOfDeath;
 
@@ -845,6 +846,8 @@ typedef struct
 	int			inventory[MAX_ITEMS];
 
 	// ammo capacities
+	int			max_cast;		//has stuff for max cast usable to persist over runs
+	int			max_defiance;	//^ see above but death defiance
 	int			max_bullets;
 	int			max_shells;
 	int			max_rockets;

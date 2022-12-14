@@ -1,0 +1,6 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(500,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  p_weapon.c
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\p_weapon.c(1474,2): warning C4013: 'fire_punch' undefined; assuming extern returning int
+C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\p_weapon.c(1441,6): warning C4101: 'i': unreferenced local variable
+     Creating library .\..\release\gamex86.lib and object .\..\release\gamex86.exp
+  game.vcxproj -> C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\game\release\gamex86.dll

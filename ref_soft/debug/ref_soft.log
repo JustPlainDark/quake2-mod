@@ -1,0 +1,56 @@
+﻿  Performing Custom Build Tools
+  Microsoft (R) Macro Assembler Version 14.32.31328.0
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+   Assembling: C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_aclipa.asm
+  Performing Custom Build Tools
+  Microsoft (R) Macro Assembler Version 14.32.31328.0
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+   Assembling: C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_draw16.asm
+  Performing Custom Build Tools
+  Microsoft (R) Macro Assembler Version 14.32.31328.0
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+   Assembling: C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_drawa.asm
+  Performing Custom Build Tools
+  Microsoft (R) Macro Assembler Version 14.32.31328.0
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+   Assembling: C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_edgea.asm
+  Performing Custom Build Tools
+  Microsoft (R) Macro Assembler Version 14.32.31328.0
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+   Assembling: C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_polysa.asm
+  Performing Custom Build Tools
+  Microsoft (R) Macro Assembler Version 14.32.31328.0
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+   Assembling: C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_scana.asm
+  Performing Custom Build Tools
+  Microsoft (R) Macro Assembler Version 14.32.31328.0
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+   Assembling: C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_spr8.asm
+  Performing Custom Build Tools
+  Microsoft (R) Macro Assembler Version 14.32.31328.0
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+   Assembling: C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_surf8.asm
+  Performing Custom Build Tools
+  Microsoft (R) Macro Assembler Version 14.32.31328.0
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  
+   Assembling: C:\Users\justp\OneDrive\Documents\IT266-F22\Game-Mod-Q2\quake2-mod\ref_soft\r_varsa.asm
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(245,5): warning MSB8065: Custom build for item "r_aclipa.asm" succeeded, but specified output "c:\users\justp\onedrive\documents\it266-f22\game-mod-q2\quake2-mod\debug\.obj" has not been created. This may cause incremental build to work incorrectly.
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(245,5): warning MSB8065: Custom build for item "r_draw16.asm" succeeded, but specified output "c:\users\justp\onedrive\documents\it266-f22\game-mod-q2\quake2-mod\debug\.obj" has not been created. This may cause incremental build to work incorrectly.
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(245,5): warning MSB8065: Custom build for item "r_drawa.asm" succeeded, but specified output "c:\users\justp\onedrive\documents\it266-f22\game-mod-q2\quake2-mod\debug\.obj" has not been created. This may cause incremental build to work incorrectly.
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(245,5): warning MSB8065: Custom build for item "r_edgea.asm" succeeded, but specified output "c:\users\justp\onedrive\documents\it266-f22\game-mod-q2\quake2-mod\debug\.obj" has not been created. This may cause incremental build to work incorrectly.
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(245,5): warning MSB8065: Custom build for item "r_polysa.asm" succeeded, but specified output "c:\users\justp\onedrive\documents\it266-f22\game-mod-q2\quake2-mod\debug\.obj" has not been created. This may cause incremental build to work incorrectly.
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(245,5): warning MSB8065: Custom build for item "r_scana.asm" succeeded, but specified output "c:\users\justp\onedrive\documents\it266-f22\game-mod-q2\quake2-mod\debug\.obj" has not been created. This may cause incremental build to work incorrectly.
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(245,5): warning MSB8065: Custom build for item "r_spr8.asm" succeeded, but specified output "c:\users\justp\onedrive\documents\it266-f22\game-mod-q2\quake2-mod\debug\.obj" has not been created. This may cause incremental build to work incorrectly.
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(245,5): warning MSB8065: Custom build for item "r_surf8.asm" succeeded, but specified output "c:\users\justp\onedrive\documents\it266-f22\game-mod-q2\quake2-mod\debug\.obj" has not been created. This may cause incremental build to work incorrectly.
+C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(245,5): warning MSB8065: Custom build for item "r_varsa.asm" succeeded, but specified output "c:\users\justp\onedrive\documents\it266-f22\game-mod-q2\quake2-mod\debug\.obj" has not been created. This may cause incremental build to work incorrectly.
+cl : command line warning D9035: option 'Gm' has been deprecated and will be removed in a future release
+cl : command line error D8016: '/ZI' and '/Gy-' command-line options are incompatible

@@ -1941,7 +1941,7 @@ void Game_MenuInit( void )
 {
 	static const char *difficulty_names[] =
 	{
-		"easy",
+		"ez",
 		"medium",
 		"hard",
 		0
@@ -1954,7 +1954,7 @@ void Game_MenuInit( void )
 	s_easy_game_action.generic.flags  = QMF_LEFT_JUSTIFY;
 	s_easy_game_action.generic.x		= 0;
 	s_easy_game_action.generic.y		= 0;
-	s_easy_game_action.generic.name	= "easy";
+	s_easy_game_action.generic.name	= "ez";
 	s_easy_game_action.generic.callback = EasyGameFunc;
 
 	s_medium_game_action.generic.type	= MTYPE_ACTION;

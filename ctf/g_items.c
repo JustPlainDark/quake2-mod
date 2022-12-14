@@ -512,7 +512,7 @@ qboolean Pickup_Ammo (edict_t *ent, edict_t *other)
 
 	if (weapon && !oldcount)
 	{
-		if (other->client->pers.weapon != ent->item && ( !deathmatch->value || other->client->pers.weapon == FindItem("blaster") ) )
+		if (other->client->pers.weapon != ent->item && (!deathmatch->value || other->client->pers.weapon == FindItem("blaster")))
 			other->client->newweapon = ent->item;
 	}
 
