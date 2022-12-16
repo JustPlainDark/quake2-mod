@@ -93,7 +93,10 @@ typedef enum
 	WEAPON_READY, 
 	WEAPON_ACTIVATING,
 	WEAPON_DROPPING,
-	WEAPON_FIRING
+	WEAPON_FIRING,
+	//DG: Reload States
+	WEAPON_END_MAG,
+	WEAPON_RELOADING
 } weaponstate_t;
 
 typedef enum
@@ -103,7 +106,9 @@ typedef enum
 	AMMO_ROCKETS,
 	AMMO_GRENADES,
 	AMMO_CELLS,
-	AMMO_SLUGS
+	AMMO_SLUGS,
+	//DG
+	AMMO_CAST
 } ammo_t;
 
 
@@ -258,6 +263,7 @@ typedef struct gitem_s
 	int			tag;
 
 	char		*precaches;		// string of all models, sounds, and images this item will use
+	// DG: Potentially put a flag here to indicate special can be used
 } gitem_t;
 
 
@@ -333,6 +339,7 @@ typedef struct
 
 	int			total_monsters;
 	int			killed_monsters;
+	int			drachma;			//DG: Buy stuff c:
 
 	edict_t		*current_entity;	// entity running from G_RunFrame
 	int			body_que;			// dead bodies
@@ -500,6 +507,7 @@ extern	int	body_armor_index;
 #define MOD_TARGET_BLASTER	33
 #define MOD_FRIENDLY_FIRE	0x8000000
 #define MOD_PUNCH			34
+#define MOD_SWORD			35
 
 extern	int	meansOfDeath;
 
@@ -734,6 +742,10 @@ void fire_grenade2 (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int 
 void fire_rocket (edict_t *self, vec3_t start, vec3_t dir, int damage, int speed, float damage_radius, int radius_damage);
 void fire_rail (edict_t *self, vec3_t start, vec3_t aimdir, int damage, int kick);
 void fire_bfg (edict_t *self, vec3_t start, vec3_t dir, int damage, int speed, float damage_radius);
+void fire_bow(edict_t* self, vec3_t start, vec3_t dir, int damage, int speed, float damage_radius, int radius_damage);
+void fire_castSeek(edict_t* self, vec3_t start, vec3_t dir, int damage, int speed, float damage_radius, int radius_damage);
+
+	
 
 //
 // g_ptrail.c
@@ -841,19 +853,26 @@ typedef struct
 	int			health;
 	int			max_health;
 	int			savedFlags;
+	int			damageCalc;
 
 	int			selected_item;
 	int			inventory[MAX_ITEMS];
 
 	// ammo capacities
-	int			max_cast;		//has stuff for max cast usable to persist over runs
-	int			max_defiance;	//^ see above but death defiance
+	int			max_cast;		// DG: has stuff for max cast usable to persist over runs
+	int			defiance;	//^ see above but death defiance
+	int			constant_cash;  // Cash to be constantly added to the player
 	int			max_bullets;
 	int			max_shells;
 	int			max_rockets;
 	int			max_grenades;
 	int			max_cells;
 	int			max_slugs;
+	qboolean	homing_state;  //DG :	homing cast boon
+	qboolean	vampire_state;	//DG : vampirism boon
+	qboolean	revenge_state;	//DG : revenge boon
+	qboolean	speed_state;	//DG : Speed boon
+	qboolean	dodge_state;	//DG : Dodge boon
 
 	gitem_t		*weapon;
 	gitem_t		*lastweapon;
@@ -959,6 +978,10 @@ struct gclient_s
 	int			flood_whenhead;		// head pointer for when said
 
 	float		respawn_time;		// can respawn when time > this
+
+	//DG: Reload
+	int			railg_max;
+	int			railg_rds;
 
 	edict_t		*chase_target;		// player we are chasing
 	qboolean	update_chase;		// need to update chase info?

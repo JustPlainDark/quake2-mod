@@ -243,6 +243,7 @@ void Cmd_Give_f (edict_t *ent)
 			return;
 	}
 
+
 	if (give_all)
 	{
 		for (i=0 ; i<game.num_items ; i++)
@@ -296,12 +297,135 @@ void Cmd_Give_f (edict_t *ent)
 }
 
 
+//DG: Reload
+//PP ENTIRE CODE BLOCK NEW
+		// Cmd_Reload_f()
+		// Handles weapon reload requests
+void Cmd_Reload_f(edict_t* ent)
+{
+	int rds_left;           //PP - Variable to handle rounds left
+
+	 //PP - If the player is dead, don't bother
+	if (ent->deadflag == DEAD_DEAD)
+	{
+		gi.centerprintf(ent, "I know you're not smart,\nBUT YOU'RE DEAD!!\n");
+		return;
+	}
+
+	//First, grab the current magazine max count...
+	if (stricmp(ent->client->pers.weapon->pickup_name, "HyperBlaster") == 0)
+		rds_left = ent->client->railg_max;
+	else    //We should never get here, but...
+			 //BD 5/26 - Actually we get here quite often right now. Just exit for weaps that we
+			//          don't want reloaded or that never reload (grenades)
+	{
+		gi.centerprintf(ent, "Where'd you train?\nYou can't reload that!\n");
+		return;
+	}
+
+	if (ent->client->pers.inventory[ent->client->ammo_index])
+	{
+		if ((ent->client->weaponstate != WEAPON_END_MAG) && (ent->client->pers.inventory[ent->client->ammo_index] < rds_left))
+		{
+			gi.centerprintf(ent, "Buy a clue-\nYou're on your last magazine!\n");
+		}
+		else
+			//Set the weaponstate...
+			ent->client->weaponstate = WEAPON_RELOADING;
+	}
+	else
+		gi.centerprintf(ent, "Pull your head out-\nYou've got NO AMMO!\n");
+}
+
+
 //DG Start: Cmd_Special : links special attack functionality
 void Cmd_Special(edict_t* ent) {
 	
+	if (stricmp(ent->client->pers.weapon->pickup_name, "Hands") == 0) {
+		gi.centerprintf(ent, "Fist special\n");
+		
+	}
+	else if (stricmp(ent->client->pers.weapon->pickup_name, "Sword") == 0) {
+		gi.centerprintf(ent, "Sword special\n");
+	}
+	else if (stricmp(ent->client->pers.weapon->pickup_name, "Rocket Launcher") == 0) {
+		Weapon_SpecialVolley(ent);
+	}
+	else if (stricmp(ent->client->pers.weapon->pickup_name, "HyperBlaster") == 0) {
+		gi.centerprintf(ent, "Railgun special\n");
+	}
+	else {
+		gi.centerprintf(ent, "This weapon has \n no special :c\n");
+		return;
+	}
 
 }
 
+void Cmd_Cast(edict_t* ent) {
+	Weapon_Cast(ent);
+}
+
+void Cmd_Shop(edict_t* ent) {
+	gi.cprintf(ent, PRINT_CHAT, "*disgruntled noises*\n");
+	gi.cprintf(ent, PRINT_CHAT, "A rather peculiar skeletal fellow appears before you and offers you his wares\n");
+	gi.cprintf(ent, PRINT_CHAT, "Purchase upgrades: TitansBlood, Midas, Hercules \n");
+	gi.cprintf(ent, PRINT_CHAT, "Purchase boons: SeekShot, Haste, BattleRage, Evasion, Vampire\n");
+	gi.cprintf(ent, PRINT_CHAT, "Purchase powerup: Quad, TempHaste, Invul, Regen, Vampire\n");
+	gi.cprintf(ent, PRINT_CHAT, "It seems as if 100 drachma will do for anything here...\n");
+	gi.cprintf(ent, PRINT_CHAT, "Pay by doing purchase (itemName) in console (type them in as it appears above i.e purchase BattleRage\n");
+}
+
+void Cmd_Purchase(edict_t* ent) {
+	char* purchase;
+
+	if (!ent->client)
+		return;		// not fully in game yet
+
+	purchase = gi.args();
+	if (Q_stricmp(purchase, "TitansBlood") == 0) {
+		level.drachma -= 100;
+		ent->client->pers.max_health += 100;
+		ent->health = ent->client->pers.max_health;
+		gi.cprintf(ent, PRINT_CHAT, "You feel revitalized!\n");
+	}
+	if (Q_stricmp(purchase, "Defiance") == 0) {
+		level.drachma -= 100;
+		ent->client->pers.defiance ++;
+		gi.cprintf(ent, PRINT_CHAT, "Cheating the old man, huh\n");
+	}
+	else if (Q_stricmp(purchase, "Midas") == 0) {
+		ent->client->pers.constant_cash += 100;
+		gi.cprintf(ent, PRINT_CHAT, "You have pleased Midas\n");
+	}
+	else if (Q_stricmp(purchase, "SeekShot") == 0) {
+		level.drachma -= 100;
+		ent->client->pers.homing_state = true;
+		gi.cprintf(ent, PRINT_CHAT, "Your arrow is true, Artemis guides you!\n");
+	}
+	else if (Q_stricmp(purchase, "Vampire") == 0) {
+		level.drachma -= 100;
+		ent->client->pers.vampire_state = true;
+		gi.cprintf(ent, PRINT_CHAT, "You are the prince of the dead after all...\n");
+	}
+	else if (Q_stricmp(purchase, "Revenge") == 0) {
+		level.drachma -= 100;
+		ent->client->pers.revenge_state = true;
+		gi.cprintf(ent, PRINT_CHAT, "Ares! Destroy my enemies and my life is yours...\n");
+	}
+	else if (Q_stricmp(purchase, "Dodge") == 0) {
+		level.drachma -= 100;
+		ent->client->pers.dodge_state = true;
+		gi.cprintf(ent, PRINT_CHAT, "Clever as Hermes!\n");
+	}
+	else if (Q_stricmp(purchase, "Speed") == 0) {
+		level.drachma -= 100;
+		ent->client->pers.speed_state = true;
+		gi.cprintf(ent, PRINT_CHAT, "Swift as the wind!\n");
+	}
+	else {
+		gi.cprintf(ent, PRINT_CHAT, "I don't have that in my shop...\n");
+	}
+}
 
 /*
 ==================
@@ -950,34 +1074,44 @@ void ClientCommand (edict_t *ent)
 	if (level.intermissiontime)
 		return;
 
-	if (Q_stricmp (cmd, "use") == 0)
-		Cmd_Use_f (ent);
-	else if (Q_stricmp (cmd, "drop") == 0)
-		Cmd_Drop_f (ent);
-	else if (Q_stricmp (cmd, "give") == 0)
-		Cmd_Give_f (ent);
-	else if (Q_stricmp (cmd, "god") == 0)
-		Cmd_God_f (ent);
-	else if (Q_stricmp (cmd, "notarget") == 0)
-		Cmd_Notarget_f (ent);
-	else if (Q_stricmp (cmd, "noclip") == 0)
-		Cmd_Noclip_f (ent);
-	else if (Q_stricmp (cmd, "inven") == 0)
-		Cmd_Inven_f (ent);
-	else if (Q_stricmp (cmd, "invnext") == 0)
-		SelectNextItem (ent, -1);
-	else if (Q_stricmp (cmd, "invprev") == 0)
-		SelectPrevItem (ent, -1);
-	else if (Q_stricmp (cmd, "invnextw") == 0)
-		SelectNextItem (ent, IT_WEAPON);
-	else if (Q_stricmp (cmd, "invprevw") == 0)
-		SelectPrevItem (ent, IT_WEAPON);
-	else if (Q_stricmp (cmd, "invnextp") == 0)
-		SelectNextItem (ent, IT_POWERUP);
-	else if (Q_stricmp (cmd, "invprevp") == 0)
-		SelectPrevItem (ent, IT_POWERUP);
-	else if (Q_stricmp (cmd, "invuse") == 0)
-		Cmd_InvUse_f (ent);
+	if (Q_stricmp(cmd, "use") == 0)
+		Cmd_Use_f(ent);
+	else if (Q_stricmp(cmd, "drop") == 0)
+		Cmd_Drop_f(ent);
+	else if (Q_stricmp(cmd, "give") == 0)
+		Cmd_Give_f(ent);
+	else if (Q_stricmp(cmd, "god") == 0)
+		Cmd_God_f(ent);
+	else if (Q_stricmp(cmd, "notarget") == 0)
+		Cmd_Notarget_f(ent);
+	else if (Q_stricmp(cmd, "noclip") == 0)
+		Cmd_Noclip_f(ent);
+	else if (Q_stricmp(cmd, "inven") == 0)
+		Cmd_Inven_f(ent);
+	else if (Q_stricmp(cmd, "invnext") == 0)
+		SelectNextItem(ent, -1);
+	else if (Q_stricmp(cmd, "invprev") == 0)
+		SelectPrevItem(ent, -1);
+	else if (Q_stricmp(cmd, "invnextw") == 0)
+		SelectNextItem(ent, IT_WEAPON);
+	else if (Q_stricmp(cmd, "invprevw") == 0)
+		SelectPrevItem(ent, IT_WEAPON);
+	else if (Q_stricmp(cmd, "invnextp") == 0)
+		SelectNextItem(ent, IT_POWERUP);
+	else if (Q_stricmp(cmd, "invprevp") == 0)
+		SelectPrevItem(ent, IT_POWERUP);
+	else if (Q_stricmp(cmd, "invuse") == 0)
+		Cmd_InvUse_f(ent);
+	else if (Q_stricmp(cmd, "spAtk") == 0)  //DG : Bind special attack
+		Cmd_Special(ent);
+	else if (Q_stricmp(cmd, "reload") == 0)  //DG : Bind reload
+		Cmd_Reload_f(ent);
+	else if (Q_stricmp(cmd, "cast") == 0) //DG : Bind cast
+		Cmd_Cast(ent);
+	else if (Q_stricmp(cmd, "shop") == 0)  //DG : Command Shop
+		Cmd_Shop(ent);
+	else if (Q_stricmp(cmd, "purchase") == 0) //DG : Purchase items
+		Cmd_Purchase(ent);
 	else if (Q_stricmp (cmd, "invdrop") == 0)
 		Cmd_InvDrop_f (ent);
 	else if (Q_stricmp (cmd, "weapprev") == 0)

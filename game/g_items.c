@@ -35,7 +35,10 @@ void Weapon_Grenade (edict_t *ent);
 void Weapon_GrenadeLauncher (edict_t *ent);
 void Weapon_Railgun (edict_t *ent);
 void Weapon_BFG (edict_t *ent);
-void Weapon_Null(edict_t* ent);
+void Weapon_Null(edict_t* ent);		// DG: Fists
+void Weapon_Sword(edict_t* ent);	// Likewise sword
+void Weapon_Cast(edict_t* ent);		// Cast
+
 
 gitem_armor_t jacketarmor_info	= { 25,  50, .30, .00, ARMOR_JACKET};
 gitem_armor_t combatarmor_info	= { 50, 100, .60, .30, ARMOR_COMBAT};
@@ -232,6 +235,8 @@ qboolean Pickup_Bandolier (edict_t *ent, edict_t *other)
 		other->client->pers.max_cells = 250;
 	if (other->client->pers.max_slugs < 75)
 		other->client->pers.max_slugs = 75;
+	if (other->client->pers.max_cast < 5)
+		other->client->pers.max_cast = 5;
 
 	item = FindItem("Bullets");
 	if (item)
@@ -249,6 +254,15 @@ qboolean Pickup_Bandolier (edict_t *ent, edict_t *other)
 		other->client->pers.inventory[index] += item->quantity;
 		if (other->client->pers.inventory[index] > other->client->pers.max_shells)
 			other->client->pers.inventory[index] = other->client->pers.max_shells;
+	}
+
+	item = FindItem("Casts");
+	if (item)
+	{
+		index = ITEM_INDEX(item);
+		other->client->pers.inventory[index] += item->quantity;
+		if (other->client->pers.inventory[index] > other->client->pers.max_cast)
+			other->client->pers.inventory[index] = other->client->pers.max_cast;
 	}
 
 	if (!(ent->spawnflags & DROPPED_ITEM) && (deathmatch->value))
@@ -465,6 +479,8 @@ qboolean Add_Ammo (edict_t *ent, gitem_t *item, int count)
 		max = ent->client->pers.max_cells;
 	else if (item->tag == AMMO_SLUGS)
 		max = ent->client->pers.max_slugs;
+	else if (item->tag == AMMO_CAST)
+		max = ent->client->pers.max_cast;
 	else
 		return false;
 
@@ -1472,8 +1488,9 @@ always owned, never in the world
 	},
 
 /*QUAKED weapon_rocketlauncher (.3 .3 1) (-16 -16 -16) (16 16 16)
-*/
+*/ 
 	{
+		//DG Bow
 		"weapon_rocketlauncher",
 		Pickup_Weapon,
 		Use_Weapon,
@@ -1563,6 +1580,57 @@ always owned, never in the world
 /* precache */ "sprites/s_bfg1.sp2 sprites/s_bfg2.sp2 sprites/s_bfg3.sp2 weapons/bfg__f1y.wav weapons/bfg__l1a.wav weapons/bfg__x1b.wav weapons/bfg_hum.wav"
 	},
 
+			//DG :: Gained from QDevels Pridkett (anything that references sword)
+			/* weapon_sword
+			always owned, never in the world
+			*/
+	{
+		"weapon_sword",
+		NULL,
+		Use_Weapon,                             //How to use
+		NULL,
+		Weapon_Sword,                           //What the function is
+		"misc/w_pkup.wav",
+		NULL,
+		0,
+		"models/weapons/v_blast/tris.md2",      //The models stuff
+		"w_blaster",                                    //Icon to be used
+		"Sword",                                        //Pickup name
+		0,
+		0,
+		NULL,
+		IT_WEAPON,
+		NULL,
+		0,
+		 "weapons/hgrenlb1b.wav misc/fhit3.wav" //The sound of the grenade bounce
+								//This is precached
+	},
+
+			/* QUAKED weapon_cast(.3 .3 1) (-16 - 16 - 16) (16 16 16)
+			*/
+		{
+			//DG Cast
+			"weapon_cast",
+				NULL,
+				Use_Weapon,
+				NULL,
+				Weapon_Cast,
+				"misc/w_pkup.wav",
+				"models/weapons/g_rocket/tris.md2", 
+				0,
+				"models/weapons/v_rocket/tris.md2",
+		/* icon */"w_rlauncher",
+		/* pickup name */"Cast",
+				1,
+				3,
+				"Casts",
+				IT_WEAPON,
+				WEAP_ROCKETLAUNCHER,
+				NULL,
+				0,
+				 /*precache*/  "models/objects/rocket/tris.md2 weapons/rockfly.wav weapons/rocklf1a.wav weapons/rocklr1b.wav models/objects/debris2/tris.md2"
+		},
+
 	//
 	// AMMO ITEMS
 	//
@@ -1634,6 +1702,29 @@ always owned, never in the world
 		NULL,
 		AMMO_CELLS,
 /* precache */ ""
+	},
+
+		/*DG: QUAKED ammo_cast (.3 .3 1) (-16 -16 -16) (16 16 16)
+*/
+	{
+		"ammo_cast",
+		Pickup_Ammo,
+		NULL,
+		Drop_Ammo,
+		NULL,
+		"misc/am_pkup.wav",
+		"models/items/ammo/rockets/medium/tris.md2", 0,
+		NULL,
+		/* icon */		"null",
+		/* pickup */	"Casts",
+		/* width */		1,
+		3,
+		NULL,
+		IT_AMMO,
+		NULL,
+		NULL,
+		AMMO_CAST,
+		/* precache */ ""
 	},
 
 /*QUAKED ammo_rockets (.3 .3 1) (-16 -16 -16) (16 16 16)

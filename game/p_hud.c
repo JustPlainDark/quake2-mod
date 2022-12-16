@@ -345,25 +345,11 @@ Display the current help message
 */
 void Cmd_Help_f (edict_t *ent)
 {
-	// this is for backwards compatability
-	if (deathmatch->value)
-	{
-		Cmd_Score_f (ent);
-		return;
-	}
-
-	ent->client->showinventory = false;
-	ent->client->showscores = false;
-
-	if (ent->client->showhelp && (ent->client->pers.game_helpchanged == game.helpchanged))
-	{
-		ent->client->showhelp = false;
-		return;
-	}
-
-	ent->client->showhelp = true;
-	ent->client->pers.helpchanged = 0;
-	HelpComputer (ent);
+	gi.cprintf(ent, PRINT_CHAT, "Hades Weapons: Left click is the main weapon\nFists: Melee attack with explosive special\nBow : Hold to shoot straight and deal more damage or shoot instantly and arc down.The special is a spread shot in a forward arc.\nRailgun : Just shoot and reload.The special launches a grenade.\nSword : Does a quick sword swing in a forward arc.The special does a burst around the player.\nCast: Fires a straight shot at the enemy\n");
+	gi.cprintf(ent, PRINT_CHAT, "Boons: Boons can be bought from the Charon Shop and will stay throughout the run. Will provide different powerups and disappear on death.\n");
+	gi.cprintf(ent, PRINT_CHAT, "Roguelike Mechanics: Certain stats such as your max health, max revives, cast usage and passive money gain will stay after death\n");
+	gi.cprintf(ent, PRINT_CHAT, "Charon Shop: Press ` to activate the console and purchase items from Charons Shop\nUse the command shop to see all available items to purchase\nUse the command purchase (item) to purchase an item\n");
+	gi.cprintf(ent, PRINT_CHAT, "Charon Shop Part 2: Temporary items\nSome items will only last for a limited amount of time. These include speed boosts, temporary damage buffs, a lifesteal effect, temporary health regen and temporary invulnerability\n");
 }
 
 
@@ -385,6 +371,7 @@ void G_SetStats (edict_t *ent)
 	//
 	ent->client->ps.stats[STAT_HEALTH_ICON] = level.pic_health;
 	ent->client->ps.stats[STAT_HEALTH] = ent->health;
+	ent->client->ps.stats[STAT_DRACHMA] = level.drachma;
 
 	//
 	// ammo
@@ -448,29 +435,47 @@ void G_SetStats (edict_t *ent)
 	//
 	if (ent->client->quad_framenum > level.framenum)
 	{
-		ent->client->ps.stats[STAT_TIMER_ICON] = gi.imageindex ("p_quad");
-		ent->client->ps.stats[STAT_TIMER] = (ent->client->quad_framenum - level.framenum)/10;
+		ent->client->ps.stats[STAT_TIMER_ICON] = gi.imageindex("p_quad");
+		ent->client->ps.stats[STAT_TIMER] = (ent->client->quad_framenum - level.framenum) / 10;
 	}
-	else if (ent->client->invincible_framenum > level.framenum)
+	else							// New
+	{							// New
+		ent->client->ps.stats[STAT_TIMER_ICON] = 0;	// New
+		ent->client->ps.stats[STAT_TIMER] = 0;		// New
+	}							// New
+
+	if (ent->client->invincible_framenum > level.framenum)
 	{
-		ent->client->ps.stats[STAT_TIMER_ICON] = gi.imageindex ("p_invulnerability");
-		ent->client->ps.stats[STAT_TIMER] = (ent->client->invincible_framenum - level.framenum)/10;
+		ent->client->ps.stats[STAT_TIMER2_ICON] = gi.imageindex("p_invulnerability");
+		ent->client->ps.stats[STAT_TIMER2] = (ent->client->invincible_framenum - level.framenum) / 10;
 	}
-	else if (ent->client->enviro_framenum > level.framenum)
+	else							// New
+	{							// New
+		ent->client->ps.stats[STAT_TIMER2_ICON] = 0;	// New
+		ent->client->ps.stats[STAT_TIMER2] = 0;		// New
+	}							// New
+
+	if (ent->client->enviro_framenum > level.framenum)
 	{
-		ent->client->ps.stats[STAT_TIMER_ICON] = gi.imageindex ("p_envirosuit");
-		ent->client->ps.stats[STAT_TIMER] = (ent->client->enviro_framenum - level.framenum)/10;
+		ent->client->ps.stats[STAT_TIMER3_ICON] = gi.imageindex("p_envirosuit");
+		ent->client->ps.stats[STAT_TIMER3] = (ent->client->enviro_framenum - level.framenum) / 10;
 	}
-	else if (ent->client->breather_framenum > level.framenum)
+	else							// New
+	{							// New
+		ent->client->ps.stats[STAT_TIMER3_ICON] = 0;	// New
+		ent->client->ps.stats[STAT_TIMER3] = 0;		// New
+	}							// New
+
+	if (ent->client->breather_framenum > level.framenum)
 	{
-		ent->client->ps.stats[STAT_TIMER_ICON] = gi.imageindex ("p_rebreather");
-		ent->client->ps.stats[STAT_TIMER] = (ent->client->breather_framenum - level.framenum)/10;
+		ent->client->ps.stats[STAT_TIMER4_ICON] = gi.imageindex("p_rebreather");
+		ent->client->ps.stats[STAT_TIMER4] = (ent->client->breather_framenum - level.framenum) / 10;
 	}
-	else
-	{
-		ent->client->ps.stats[STAT_TIMER_ICON] = 0;
-		ent->client->ps.stats[STAT_TIMER] = 0;
-	}
+	else							// New
+	{							// New
+		ent->client->ps.stats[STAT_TIMER4_ICON] = 0;	// New
+		ent->client->ps.stats[STAT_TIMER4] = 0;		// New
+	}							// New
 
 	//
 	// selected item

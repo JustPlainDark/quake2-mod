@@ -670,6 +670,12 @@ char *single_statusbar =
 "	pic 4 "
 "endif "
 
+//DG : Money
+"if 24 "
+"	xv 300 "
+"	num 4 24 "
+"endif "
+
 // selected item
 "if 6 "
 "	xv	296 "
@@ -690,10 +696,38 @@ char *single_statusbar =
 
 // timer
 "if 9 "
-"	xv	262 "
+"	yb	-24 "
+"	xr	-58 "
 "	num	2	10 "
-"	xv	296 "
+"	xr	-24 "
 "	pic	9 "
+"endif "
+
+//timer2
+"if 18 "
+"	yb	-48 "
+"	xr	-58 "
+"	num	2	19 "
+"	xr	-24 "
+"	pic	18 "
+"endif "
+
+//timer3
+"if 20 "
+"	yb	-72 "
+"	xr	-58 "
+"	num	2	21 "
+"	xr	-24 "
+"	pic	20 "
+"endif "
+
+//timer4
+"if 22 "
+"	yb	-96 "
+"	xr	-58 "
+"	num	2	23 "
+"	xr	-24 "
+"	pic	22 "
 "endif "
 
 //  help / weapon icon 

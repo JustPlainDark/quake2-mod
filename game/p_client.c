@@ -387,6 +387,10 @@ void ClientObituary (edict_t *self, edict_t *inflictor, edict_t *attacker)
 				message = "took";
 				message2 = "'s fist in the face";
 				break;
+			case MOD_SWORD:
+				message = "got";
+				message2 = "sliced!";
+				break;
 			}
 			if (message)
 			{
@@ -596,6 +600,9 @@ void player_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int damag
 	self->deadflag = DEAD_DEAD;
 
 	gi.linkentity (self);
+
+	//DG Reset Money
+	level.drachma = 0;
 }
 
 //=======================================================================
@@ -611,12 +618,24 @@ but is called after each death and level change in deathmatch
 void InitClientPersistant (gclient_t *client)
 {
 	gitem_t		*item;
+	gitem_t*	ammo;
 
 	memset (&client->pers, 0, sizeof(client->pers));
 
+	//DG: Find weapons on start
+
+	item = FindItem("Sword");
+	client->pers.inventory[ITEM_INDEX(item)] = 2;
+	item = FindItem("Cast");
+	ammo = FindItem(item->ammo);
+	Add_Ammo(item, ammo, 3);
+	client->pers.selected_item = ITEM_INDEX(item);
+	client->pers.inventory[client->pers.selected_item] = 5;
 	item = FindItem("Hands");
 	client->pers.selected_item = ITEM_INDEX(item);
 	client->pers.inventory[client->pers.selected_item] = 1;
+
+	
 
 	client->pers.weapon = item;
 
@@ -629,6 +648,12 @@ void InitClientPersistant (gclient_t *client)
 	client->pers.max_grenades	= 50;
 	client->pers.max_cells		= 200;
 	client->pers.max_slugs		= 50;
+	client->pers.max_cast		= 3;
+	client->pers.homing_state	= false;
+	client->pers.vampire_state	= false;
+	client->pers.dodge_state	= false;
+	client->pers.speed_state	= false;
+	client->pers.revenge_state	= false;
 
 	client->pers.connected = true;
 }
@@ -1108,6 +1133,7 @@ void PutClientInServer (edict_t *ent)
 	int		i;
 	client_persistant_t	saved;
 	client_respawn_t	resp;
+	gitem_t  *item;
 
 	// find a spawn point
 	// do it before setting health back up, so farthest
@@ -1253,6 +1279,10 @@ void PutClientInServer (edict_t *ent)
 	}
 
 	gi.linkentity (ent);
+
+	//DG: Set clip size
+	client->railg_max = 15;
+	client->railg_rds = client->railg_max;
 
 	// force the current weapon up
 	client->newweapon = client->pers.weapon;
@@ -1577,6 +1607,7 @@ void ClientThink (edict_t *ent, usercmd_t *ucmd)
 	edict_t	*other;
 	int		i, j;
 	pmove_t	pm;
+	
 
 	level.current_entity = ent;
 	client = ent->client;

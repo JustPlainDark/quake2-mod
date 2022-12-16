@@ -6,6 +6,7 @@
 
 Download the Hades folder which includes the **gamex86.dll** and **config.cfg**. Copy the contents of your baseq2 folder in *steamapps/common/Quake2/baseq2* (**aside from the config and dll**) into the new Hades folder (place this in here **steamapps/common/Quake2**)   
 From there you can create a new shortcut of the Quake2.exe in the Steam folder and add +game set Hades to load into the mod instantly c:
+That or just build it using the files and make sure to set the C++ code generation function level linking to yes for GY in properties of each project in the solution. Also change the axfres.h ( I think thats what it called ) to windows.h
 
 ## Changes
 
